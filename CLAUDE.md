@@ -16,6 +16,7 @@ This is a freshly initialized repository. As the project grows, update this sect
 ```
 Claude/
 ├── CLAUDE.md                       # AI assistant guidance (this file)
+├── image-editing-skill.md          # Image editing, enhancement & appeal skill
 └── stock-market-research-skill.md  # Comprehensive stock market research skill
 ```
 
