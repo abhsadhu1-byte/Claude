@@ -15,8 +15,8 @@ This is a freshly initialized repository. As the project grows, update this sect
 
 ```
 Claude/
-├── CLAUDE.md          # AI assistant guidance (this file)
-└── (project files)    # To be added
+├── CLAUDE.md                       # AI assistant guidance (this file)
+└── stock-market-research-skill.md  # Comprehensive stock market research skill
 ```
 
 ## Development Workflow
