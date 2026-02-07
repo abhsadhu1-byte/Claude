@@ -16,7 +16,8 @@ This is a freshly initialized repository. As the project grows, update this sect
 ```
 Claude/
 ├── CLAUDE.md                       # AI assistant guidance (this file)
-├── image-editing-skill.md          # Image editing, enhancement & appeal skill
+├── image_editor.py                 # CLI tool for image editing & enhancement
+├── image-editing-skill.md          # Image editing, enhancement & appeal skill + usage guide
 └── stock-market-research-skill.md  # Comprehensive stock market research skill
 ```
 

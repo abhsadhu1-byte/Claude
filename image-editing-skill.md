@@ -2,6 +2,133 @@
 
 A comprehensive reference for editing, enhancing, and making images more visually appealing. Use this as a structured knowledge base covering color correction, composition, retouching, effects, and professional workflows across all major editing tools.
 
+**This skill includes a ready-to-use CLI tool** — see [Quick Start](#quick-start) to begin editing images immediately.
+
+---
+
+## Quick Start
+
+### Installation
+
+```bash
+# Install dependencies
+pip install Pillow numpy
+
+# Verify installation
+python image_editor.py --help
+```
+
+### Basic Usage
+
+```bash
+# Auto-enhance any image (analyzes and applies balanced corrections)
+python image_editor.py auto photo.jpg -o enhanced.jpg
+
+# Apply a specific style/recipe
+python image_editor.py enhance photo.jpg --style pop
+python image_editor.py enhance photo.jpg --style film -o vintage.jpg
+python image_editor.py enhance photo.jpg --style moody
+python image_editor.py enhance photo.jpg --style bright
+python image_editor.py enhance photo.jpg --style golden-hour
+python image_editor.py enhance photo.jpg --style bw-dramatic
+python image_editor.py enhance photo.jpg --style soft-portrait
+
+# Resize for social media platforms
+python image_editor.py resize photo.jpg --platform instagram-post
+python image_editor.py resize photo.jpg --platform youtube-thumbnail
+python image_editor.py resize photo.jpg --platform twitter-post
+
+# Individual adjustments
+python image_editor.py sharpen photo.jpg --amount strong
+python image_editor.py denoise photo.jpg --strength medium
+python image_editor.py exposure photo.jpg --stops +0.5
+python image_editor.py warmth photo.jpg --amount 20
+python image_editor.py crop photo.jpg --ratio 16:9
+
+# Convert formats
+python image_editor.py convert photo.png --format webp
+
+# Batch process an entire folder
+python image_editor.py batch ./photos --style pop --format webp
+python image_editor.py batch ./photos --platform instagram-post --output ./resized
+
+# View image info and brightness analysis
+python image_editor.py info photo.jpg
+
+# List all available recipes and platforms
+python image_editor.py recipes
+python image_editor.py platforms
+```
+
+### Available Enhancement Styles
+
+| Style | Description | Best For |
+|---|---|---|
+| `pop` | Vivid & Punchy — bold colors with punch | Landscapes, travel, food |
+| `film` | Warm & Nostalgic — soft, faded vintage | Portraits, lifestyle, street |
+| `moody` | Dark & Dramatic — cinematic brooding | Urban, night, editorial |
+| `bright` | Bright & Airy — light, clean, fresh | Weddings, lifestyle, product |
+| `golden-hour` | Golden Hour Glow — warm, sun-drenched | Portraits, sunset landscapes |
+| `bw-dramatic` | High Contrast B&W — bold monochrome | Editorial, architecture |
+| `soft-portrait` | Soft Portrait — flattering skin tones | Headshots, portraits |
+
+### Supported Platforms for Resizing
+
+| Platform | Output Size |
+|---|---|
+| `instagram-post` | 1080 x 1350 |
+| `instagram-story` | 1080 x 1920 |
+| `instagram-square` | 1080 x 1080 |
+| `facebook-post` | 1200 x 630 |
+| `twitter-post` | 1600 x 900 |
+| `linkedin-post` | 1200 x 627 |
+| `youtube-thumbnail` | 1280 x 720 |
+| `youtube-shorts` | 1080 x 1920 |
+| `pinterest-pin` | 1000 x 1500 |
+| `tiktok-video` | 1080 x 1920 |
+
+Run `python image_editor.py platforms` for the full list including profile picture sizes.
+
+### Using as a Python Library
+
+You can also import the functions directly in your own scripts:
+
+```python
+from image_editor import (
+    apply_recipe,
+    auto_enhance,
+    resize_for_platform,
+    apply_vibrance,
+    apply_vignette,
+    adjust_warmth,
+    sharpen_image,
+    reduce_noise,
+    adjust_exposure,
+    crop_image,
+)
+from PIL import Image
+
+# Load image
+img = Image.open("photo.jpg")
+
+# Apply a recipe
+result = apply_recipe(img, "golden-hour")
+result.save("golden.jpg", quality=90)
+
+# Auto-enhance
+result = auto_enhance(img)
+result.save("enhanced.jpg", quality=90)
+
+# Chain multiple operations
+result = img.copy()
+result = adjust_warmth(result, 15)
+result = apply_vibrance(result, 1.2)
+result = sharpen_image(result, "light")
+result = apply_vignette(result, 0.1)
+result = resize_for_platform(result, "instagram-post")
+result.save("instagram_ready.jpg", quality=90)
+```
+
 ---
 
 ## Table of Contents
